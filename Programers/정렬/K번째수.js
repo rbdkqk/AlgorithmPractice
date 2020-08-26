@@ -40,9 +40,16 @@ function solution(array, commands) {
 
   for (let i = 0; i < commands.length; i++) {
     answer.push(
-      array.slice(commands[i][0] - 1, commands[i][1]).sort()[commands[i][2] - 1]
+      array.slice(commands[i][0] - 1, commands[i][1]).sort((a, b) => a - b)[
+        commands[i][2] - 1
+      ]
     );
   }
 
   return answer;
 }
+
+// (0827 개선)
+// 다른 사람의 답을 참고했음
+// sort()안의 조건을 정확히 주는 것으로, 2번 테스트 역시 통과함
+// 앞으로도 sort()를 활용하려면, 그 조건인 함수를 정확히 작성해 줘야 하겠음.
