@@ -122,3 +122,35 @@ function solution(n) {
     - https://limjun92.github.io/programmers_algorithm/%EC%82%BC%EA%B0%81-%EB%8B%AC%ED%8C%BD%EC%9D%B4/
 
 */
+
+/*  답을 제출한 뒤 다른 사람이 제출한 답을 보고 아래에 남겨 둠
+
+function solution(n) {
+  let a = Array(n)
+    .fill()
+    .map((_, i) => Array(i + 1).fill());
+
+  let row = -1;
+  let col = 0;
+  let fill = 0;
+
+  for (let i = n; i > 0; i -= 3) {
+    a[++row][col] = ++fill;
+
+    for (let j = 0; j < i - 1; j++) {
+      a[++row][col] = ++fill;
+    }
+
+    for (let j = 0; j < i - 1; j++) {
+      a[row][++col] = ++fill;
+    }
+
+    for (let j = 0; j < i - 2; j++) {
+      a[--row][--col] = ++fill;
+    }
+  }
+
+  return a.flat();
+}
+
+*/
