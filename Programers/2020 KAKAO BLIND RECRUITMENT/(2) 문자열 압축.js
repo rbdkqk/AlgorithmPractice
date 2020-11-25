@@ -86,8 +86,11 @@ function cutStr(num, s) {
 
   for (let i = 0; i < originS.length; i += num) {
     s = originS.substring(i, originS.length);
-    let a = s.substr(0, num);
-    let b = s.substr(num, num);
+    // let a = s.substr(0, num);
+    // let b = s.substr(num, num);
+    // .substr는 이제는 쓰지 말라고 하는 방법이니, .substring으로 대체하도록 코드를 변경했음
+    let a = s.substring(0, num);
+    let b = s.substring(num, num + num);
 
     if (a === b) {
       zipTime++;
