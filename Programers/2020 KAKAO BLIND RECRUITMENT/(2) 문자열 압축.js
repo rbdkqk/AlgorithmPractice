@@ -61,22 +61,21 @@ function solution(s) {
   // 1시간 고민했는데 답을 찾지 못함
   // var answer = 0;
   // return answer;
-  let min = cutStr(1, s).length;
+  let minimalLength = getZippedString(1, s).length;
 
-  for (let i = 1; i < s.length - 1; i++) {
-    let b = cutStr(i + 1, s).length;
-    if (min > b) {
-      min = b;
+  for (let unit = 1; unit < s.length; unit++) {
+    let nextStringLengthToCompare = getZippedString(unit + 1, s).length;
+    if (minimalLength > nextStringLengthToCompare) {
+      minimalLength = nextStringLengthToCompare;
     }
   }
 
-  return min;
+  return minimalLength;
 }
 
-function cutStr(num, s) {
-  let temp = "";
-  let zipTime = 1;
-  let originS = s;
+function getZippedString(interval, originString) {
+  let zippedString = "";
+  let zippedTime = 1;
 
   // str.substr(시작 인덱스, 추출 갯수) :
   // substr은 시작 인덱스번호, 몇개를 추출할것인지를 입력받는 반면에
@@ -84,25 +83,30 @@ function cutStr(num, s) {
   // str.substring(시작 인덱스번호, 끝 인덱스번호) :
   // substring은 시작 인덱스 번호, 끝 인덱스번호를 입력받는다
 
-  for (let i = 0; i < originS.length; i += num) {
-    s = originS.substring(i, originS.length);
-    // let a = s.substr(0, num);
-    // let b = s.substr(num, num);
+  for (let i = 0; i < originString.length; i += interval) {
+    // partialString : originString에서, interval만큼을 제외한, 그 뒤의 남은 부분 문자열
+    // (처음엔 originString에서 전체가 잡히겠지만, 이후로는 interval만큼 앞에서 줄어든다)
+    let partialString = originString.substring(i, originString.length);
+    // let a = partialString.substr(0, interval);
+    // let b = partialString.substr(interval, interval);
     // .substr는 이제는 쓰지 말라고 하는 방법이니, .substring으로 대체하도록 코드를 변경했음
-    let a = s.substring(0, num);
-    let b = s.substring(num, num + num);
+    let frontPartialString = partialString.substring(0, interval);
+    let nextPartialString = partialString.substring(
+      interval,
+      interval + interval
+    );
 
-    if (a === b) {
-      zipTime++;
+    if (frontPartialString === nextPartialString) {
+      zippedTime++;
     } else {
-      if (zipTime !== 1) {
-        temp += zipTime + "";
+      if (zippedTime !== 1) {
+        zippedString += zippedTime + "";
       }
 
-      temp += a;
-      zipTime = 1;
+      zippedString += frontPartialString;
+      zippedTime = 1;
     }
   }
 
-  return temp;
+  return zippedString;
 }
