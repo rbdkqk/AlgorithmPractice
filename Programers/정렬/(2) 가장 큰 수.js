@@ -171,25 +171,25 @@ function solution(numbers) {
 
 // ===============================================================================
 
-const compFunc = (a, b) => {
-  const stra = a.toString();
-  const strb = b.toString();
-  if (parseInt(stra + strb) > parseInt(strb + stra)) {
-    return -1;
-  } else {
-    return +1;
-  }
-};
+  const compFunc = (a, b) => {
+    const stra = a.toString();
+    const strb = b.toString();
+    if (parseInt(stra + strb) > parseInt(strb + stra)) {
+      return -1;
+    } else {
+      return +1;
+    }
+  };
 
-function solution(numbers) {
-  if (
-    numbers.reduce((a, c) => {
-      return a + c;
-    }, 0) === 0
-  ) {
-    return '0';
+  function solution(numbers) {
+    if (
+      numbers.reduce((a, c) => {
+        return a + c;
+      }, 0) === 0
+    ) {
+      return '0';
+    }
+    return numbers.sort(compFunc).join('');
   }
-  return numbers.sort(compFunc).join('');
-}
 
 */
