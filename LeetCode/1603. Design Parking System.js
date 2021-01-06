@@ -86,9 +86,8 @@ ParkingSystem.prototype.addCar = function (carType) {
 
   => 해결 : 증감 연산자(전위/후위) / http://www.tcpschool.com/javascript/js_operator_incAndDec
     -- 라는 연산자가 this.count[carType - 1]의 뒤에 붙었으므로, 후위에 해당함
-    이 경우 this.count[carType - 1] 값과 0과 비교하는 `this.count[carType - 1] > 0`이 먼저 진행되므로 return 값은 여기에 걸리고,
-    이런 비교연산 후에 비로고 -- 처리가 진행된다
-      - 참고 : --this.count[carType - 1] > 0 이었다면, this.count[carType - 1]에서 -- 처리가 먼저 진행된 뒤에, 비로소 0과 비교하는 > 처리가 연산됨
+    이 경우 this.count[carType - 1] 값과 0과 비교하는 `this.count[carType - 1] > 0`이 먼저 진행되므로 return 값은 여기에 걸리고, 이런 비교연산 후에 비로소 -- 처리가 진행된다
+      - 참고 : --this.count[carType - 1] > 0 이었다면, this.count[carType - 1]에서 -- 처리가 먼저 진행된 뒤에, 그 후 0과 비교하는 > 처리가 연산됨
 */
 
 var ParkingSystem = function (big, medium, small) {
