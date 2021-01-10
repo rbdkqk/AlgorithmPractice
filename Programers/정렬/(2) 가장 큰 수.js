@@ -70,48 +70,126 @@ function solution(numbers) {
 */
 
 // 여기까지 50분이 더 소요되었으나, 일부 테스트케이스가 안맞는다.
-function solution(numbers) {
-  var answer = "";
+// function solution(numbers) {
+//   var answer = "";
 
-  if (Math.max(...numbers) === 0) {
-    return "0";
-  }
+//   if (Math.max(...numbers) === 0) {
+//     return "0";
+//   }
 
-  let numbersToString = [];
+//   let numbersToString = [];
 
-  for (let i = 0; i < numbers.length; i++) {
-    numbersToString.push(String(numbers[i]));
-  }
+//   for (let i = 0; i < numbers.length; i++) {
+//     numbersToString.push(String(numbers[i]));
+//   }
 
-  let longestNumberIndex = 0;
+//   let longestNumberIndex = 0;
 
-  for (let j = 0; j < numbersToString.length; j++) {
-    if (longestNumberIndex < numbersToString[j].length) {
-      longestNumberIndex = numbersToString[j].length;
-    }
-  }
+//   for (let j = 0; j < numbersToString.length; j++) {
+//     if (longestNumberIndex < numbersToString[j].length) {
+//       longestNumberIndex = numbersToString[j].length;
+//     }
+//   }
 
-  for (let k = 0; k < numbersToString.length; k++) {
-    if (numbersToString[k].length < longestNumberIndex) {
-      numbersToString[k] = numbersToString[k]
-        .repeat(longestNumberIndex)
-        .slice(0, longestNumberIndex);
-    }
-  }
+//   for (let k = 0; k < numbersToString.length; k++) {
+//     if (numbersToString[k].length < longestNumberIndex) {
+//       numbersToString[k] = numbersToString[k]
+//         .repeat(longestNumberIndex)
+//         .slice(0, longestNumberIndex);
+//     }
+//   }
 
-  while (numbersToString.length > 0) {
-    let index = numbersToString.indexOf(String(Math.max(...numbersToString)));
-    numbersToString.splice(index, 1);
-    answer = answer + String(numbers.splice(index, 1));
-  }
+//   while (numbersToString.length > 0) {
+//     let index = numbersToString.indexOf(String(Math.max(...numbersToString)));
+//     numbersToString.splice(index, 1);
+//     answer = answer + String(numbers.splice(index, 1));
+//   }
 
-  return answer;
-}
+//   return answer;
+// }
 
 /* 기록해 둘 사항 - 다 풀지 못한 문제임
 
   힌트를 얻고 더 풀어보았으나 답을 내지 못함
 
   테스트케이스도 잔뜩 추가했는데, 대충 어떤 느낌의 문제인지는 알겠지만 방법이 떠오르지는 않음...
+
+*/
+
+// ===============================================================================
+
+// 12. 30. 재시도 : 60분 내외 걸림
+// 위 힌트 참고해서 풀었음
+
+function solution(numbers) {
+  let answer = numbers
+    .sort((a, b) => {
+      if (String(a).length === String(b).length) {
+        return b - a;
+      } else {
+        let stringifyA = String(a);
+        let stringifyB = String(b);
+        for (let i = 0; i < 4; i++) {
+          if (stringifyA.length < 4) {
+            stringifyA = stringifyA + stringifyA[i];
+          }
+          if (stringifyB.length < 4) {
+            stringifyB = stringifyB + stringifyB[i];
+          }
+        }
+        return Number(stringifyB) - Number(stringifyA);
+      }
+    })
+    .join('');
+
+  if (Number(answer) === 0) {
+    return '0';
+  }
+
+  return answer;
+}
+
+// ===============================================================================
+
+/* 다른 사람의 풀이
+
+  function solution(numbers) {
+    var answer = numbers
+      .map((v) => v + '')
+      .sort((a, b) => (b + a) * 1 - (a + b) * 1)
+      .join('');
+
+    return answer[0] === '0' ? '0' : answer;
+  }
+
+// ===============================================================================
+
+  function solution(numbers) {
+    let answer = numbers.sort((a, b) => `${b}${a}` - `${a}${b}`).join('');
+    return answer[0] === '0' ? '0' : answer;
+  }
+
+// ===============================================================================
+
+  const compFunc = (a, b) => {
+    const stra = a.toString();
+    const strb = b.toString();
+    if (parseInt(stra + strb) > parseInt(strb + stra)) {
+      return -1;
+    } else {
+      return +1;
+    }
+  };
+
+  function solution(numbers) {
+    if (
+      numbers.reduce((a, c) => {
+        return a + c;
+      }, 0) === 0
+    ) {
+      return '0';
+    }
+    return numbers.sort(compFunc).join('');
+  }
 
 */
