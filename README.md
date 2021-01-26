@@ -12,9 +12,9 @@
 
 #### &ensp;5. 정렬 - 삽입 / 합병 / 퀵 / 버블
 
-#### &ensp;6. 완전탐색
+#### &ensp;6. DFS
 
-#### &ensp;7. BFS/DFS
+#### &ensp;7. BFS
 
 #### &ensp;8. 이분탐색(Binaray Search)
 
