@@ -87,35 +87,58 @@ var commonChars = function (A) {
 
 // 다른 사람의 코드 : JavaScript concise solution
 var commonChars = function (A) {
-  let res = [...A[0]];
+  let answer = [...A[0]]; // ['abcde', 'fghjk']  =>  ["a", "b", "c", "d", "e"]
   for (let i = 1; i < A.length; i++) {
-    res = res.filter((c) => {
-      const l = A[i].length;
-      A[i] = A[i].replace(c, '');
-      return l > A[i].length;
+    answer = answer.filter((eachLetter) => {
+      const originLength = A[i].length; // 변경 전의 문자열 길이
+      A[i] = A[i].replace(eachLetter, ''); // 문자열이 일치한다면, ''로 바꿔준다(: 그 문자열을 삭제한다)
+      return originLength > A[i].length; // true면 기존 배열에 다시 들어갈 수 있음
+      // 검사 대상인 개별 글자(c)가, 뒤의 문자열 중에 포함되어 있으면, 뒤 문자열의 길이가 변경되었을 것이니,
+      // 기존 길이 'l'이 새로운 길이 'A[i].length'보다 길어지고, 그러면 c 문자는 살아남는다
+      // 그렇지 않은 문자는 filter를 통과하지 못하므로, 다음번의 filter에는 들어가지 못함(: 다음번에는 고려하지 않게 됨)
     });
   }
-  return res;
+  return answer;
 };
 
 // ======================================================================================
 
 // 다른 사람의 코드 : Javascript, 99% Time, 100% memory, Easy to understand, iterative method
 var commonChars = function (A) {
-  let ans = A[0].split('');
+  let answer = A[0].split('');
   for (let i = 1; i < A.length; i++) {
-    ans = findCommon(ans, A[i].split(''));
+    answer = findCommon(answer, A[i].split(''));
   }
-  return ans;
+  return answer;
 };
 
-var findCommon = function (a, b) {
-  return a.filter((v) => {
-    let i = b.indexOf(v);
-    if (i !== -1) {
-      b.splice(i, 1);
-      return true;
+// filter를 통과한 배열을 반환한다
+var findCommon = function (originStringArray, nextStringArray) {
+  return originStringArray.filter((eachLetter) => {
+    let eachLetterIndex = nextStringArray.indexOf(eachLetter);
+    if (eachLetterIndex !== -1) {
+      // 뒤의 문자열에도 eachLetter가 존재하면,
+      nextStringArray.splice(eachLetterIndex, 1); // nextStringArray에서 eachLetter를 제외하고,
+      return true; // eachLetter는 살아남는다
     }
-    return false;
+    return false; // 그렇지 않으면, eachLetter는 제외된다
   });
+};
+
+// ======================================================================================
+
+// 다른 사람의 코드 : Clean JavaScript Solution
+// time O(n^2) space O(n)
+var commonChars = function (A) {
+  const result = [];
+  const firstWordArr = [...A[0]];
+
+  for (const letter of firstWordArr) {
+    if (A.every((word) => word.includes(letter))) {
+      result.push(letter);
+      A = A.map((word) => word.replace(letter, ''));
+    }
+  }
+
+  return result;
 };
