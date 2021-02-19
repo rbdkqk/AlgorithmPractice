@@ -88,3 +88,63 @@ const twoSum = (numbers, target) => {
 
   return [p1 + 1, p2 + 1];
 };
+
+// ======================================================================================
+
+// 다른 사람의 코드 : (Binary Search) Runtime: 60 ms Memory Usage: 37.6 MB
+var twoSum = function (numbers, target) {
+  return bs(numbers, target, 0, numbers.length - 1);
+};
+
+function bs(array, target, start, end) {
+  let sum = 0;
+  sum = array[start] + array[end];
+  if (sum === target) {
+    return [start + 1, end + 1];
+  }
+  if (sum < target) {
+    return bs(array, target, ++start, end);
+  } else {
+    return bs(array, target, start, --end);
+  }
+}
+
+// ======================================================================================
+
+// 다른 사람의 코드 : Javascript solution with Binary Search
+var twoSum = function (numbers, target) {
+  if (numbers.length < 2 || target < numbers[0]) {
+    return [];
+  }
+
+  let first = 0;
+  let second = 1;
+  while (numbers[first] + numbers[second] < target) {
+    let remainder = target - numbers[first];
+    second = getIndex(numbers, remainder, first, numbers.length - 1);
+    if (second != -1) {
+      break;
+    }
+    first++;
+    second = first + 1;
+  }
+
+  return [first + 1, second + 1];
+};
+
+const getIndex = function (numbers, target, start, end) {
+  if (start > end) {
+    return -1;
+  }
+
+  const mid = Math.floor((end - start) / 2 + start);
+  if (numbers[mid] == target) {
+    return mid;
+  }
+
+  if (numbers[mid] > target) {
+    return getIndex(numbers, target, start, mid - 1);
+  }
+
+  return getIndex(numbers, target, mid + 1, end);
+};
