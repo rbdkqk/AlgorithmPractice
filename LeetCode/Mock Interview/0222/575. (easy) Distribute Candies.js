@@ -46,7 +46,15 @@
  * @return {number}
  */
 
-// 10분 소요
+/*  내가 작성한 코드 (10분 소요)
+
+  시간복잡도 : O(n) : new Set() 처리에서 candyType 배열을 1회 순회
+  공간복잡도 : O(n) : new Set() 처리로 만들어진 setSize Set객체는 candyType의 요소가 다양해질수록 그 크기가 커짐
+
+  Runtime: 132 ms, faster than 87.87% of JavaScript online submissions for Distribute Candies.
+  Memory Usage: 52.4 MB, less than 65.69% of JavaScript online submissions for Distribute Candies.
+
+*/
 var distributeCandies = function (candyType) {
   let half = candyType.length / 2;
 
@@ -54,3 +62,10 @@ var distributeCandies = function (candyType) {
 
   return Math.min(half, setSize);
 };
+
+// ======================================================================================
+
+// 다른 사람의 코드 : 1-line JavaScript O(n) solution using Set
+// 본문 코드는 내 코드와 비슷해서, ES6 문법을 반영한 댓글의 코드를 기록함
+const distributeCandies = (candies) =>
+  Math.min(new Set(candies).size, candies.length / 2);
