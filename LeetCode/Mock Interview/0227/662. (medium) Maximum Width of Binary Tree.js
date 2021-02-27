@@ -150,7 +150,7 @@ var widthOfBinaryTree = function (root) {
     let minIndex = Number.MAX_SAFE_INTEGER;
     let maxIndex = Number.MIN_SAFE_INTEGER;
 
-    // 현재 층의 가장 앞에 있는 값(현재 취급할 값)의 index를 저장해 두고, 아래에서 normalizedIndex를 만드는데에 사용한다
+    // 현재 층의 가장 앞에 있는 값의 index를 저장해 두고, 아래에서 normalizedIndex를 만드는데에 사용한다
     let levelStartIndex = queue[0].index;
 
     for (let i = 0; i < size; i++) {
@@ -160,7 +160,9 @@ var widthOfBinaryTree = function (root) {
       maxIndex = Math.max(maxIndex, index);
 
       const normalizedIndex = index - levelStartIndex;
-      // index는 층별로, 0 // 0 1 // 0 1 2 3 // 0 1 2 3 4 5 6 7 // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+      // index는 층별로 다음과 같이 구성된다
+      // 모든 칸이 다 차 있는 경우 : 0 // 0 1 // 0 1 2 3 // 0 1 2 3 4 5 6 7 // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+      // 일부 칸이 비어있다면 그 칸은 빈 채로 남게 됨 : 0 1 2 3 자리에 첫번째와 마지막번째가 없다면, 1 2만 남고 답은 2
       // 이런 방식으로 층마다 새롭게 0으로 시작해서 각 node별로 저장될 것임
       // 따라서 값이 있어도 없어도 각 층의 각 자리에는 위 숫자가 정확히 맞도록 index가 채워질 것이고, 그때마다 최소/최대값을 갱신함
 
