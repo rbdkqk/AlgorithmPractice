@@ -7,7 +7,7 @@
 - 성공 : 113 / 113 Testcases Passed
 - tag : Array, Two Pointers
 
-### 2. [675. (hard) Cut Off Trees for Golf Event](https://leetcode.com/problems/cut-off-trees-for-golf-event/)
+### 2. [39. (medium) Combination Sum](https://leetcode.com/problems/combination-sum/)
 
 - 실패 :
 - tag : Array, Backtracking
