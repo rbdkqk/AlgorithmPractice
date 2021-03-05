@@ -12,7 +12,7 @@
 
 - 실패 : 14 / 113 Testcases Passed
 - tag : Depth-first Search, Union Find
-- 메모 : 문제의 접근법을 찾지 못함 - DFS 방법 구현 가능 / [Union Find 알고리즘](https://blog.naver.com/ndb796/221230967614) 방법으로 가능
+- 메모 : 문제의 접근법을 찾지 못함 - DFS 방법 구현 가능 / [Union Find(합집합 찾기) 알고리즘](https://blog.naver.com/ndb796/221230967614) 방법으로 가능
 
 ---
 
