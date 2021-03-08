@@ -1,4 +1,4 @@
-/*  0307 Mock Interview : 22. (medium) Generate Parentheses  //  tag : 
+/*  0307 Mock Interview : 22. (medium) Generate Parentheses  //  tag : String, Backtracking
 
   Given `n` pairs of parentheses, 
     write a function to generate all combinations of well-formed parentheses.
