@@ -1,6 +1,7 @@
-/*  0220 : 1155. (medium) Number of Dice Rolls With Target Sum  //  tag : Dynamic Programming
+/*  0311 Mock Interview : 1155. (medium) Number of Dice Rolls With Target Sum  //  tag : Dynamic Programming
+  (앞서 만나서 못 풀었던 문제 - 0220)
 
-  You have `d` dice, and each die has `f` faces numbered `1, 2, ..., f`.
+  You have `d` dice, and each die has `f` faces numbered 1, 2, ..., f.
 
   Return the number of possible ways (out of `f^d` total ways) 'modulo 10^9 + 7' to roll the dice 
     so the sum of the face up numbers equals `target`.
@@ -15,32 +16,32 @@
     Input: d = 1, f = 6, target = 3
     Output: 1
     Explanation: 
-    You throw one die with 6 faces.  There is only one way to get a sum of 3.
-
+      You throw one die with 6 faces.  There is only one way to get a sum of 3.
+    
   Example 2:
     Input: d = 2, f = 6, target = 7
     Output: 6
     Explanation: 
-    You throw two dice, each with 6 faces.  There are 6 ways to get a sum of 7:
-    1+6, 2+5, 3+4, 4+3, 5+2, 6+1.
-
+      You throw two dice, each with 6 faces.  There are 6 ways to get a sum of 7:
+      1+6, 2+5, 3+4, 4+3, 5+2, 6+1.
+    
   Example 3:
     Input: d = 2, f = 5, target = 10
     Output: 1
     Explanation: 
-    You throw two dice, each with 5 faces.  There is only one way to get a sum of 10: 5+5.
-
+      You throw two dice, each with 5 faces.  There is only one way to get a sum of 10: 5+5.
+  
   Example 4:
     Input: d = 1, f = 2, target = 3
     Output: 0
     Explanation: 
-    You throw one die with 2 faces.  There is no way to get a sum of 3.
-
+      You throw one die with 2 faces.  There is no way to get a sum of 3.
+    
   Example 5:
     Input: d = 30, f = 30, target = 500
     Output: 222616187
     Explanation: 
-    The answer must be returned modulo 10^9 + 7.
+      The answer must be returned modulo 10^9 + 7.
 
 */
 
@@ -51,8 +52,7 @@
  * @return {number}
  */
 
-// 전혀 손대지 못했음
-// Dynamic Programming : 문제를 잘게 쪼개어 접근한다?
+// 실패 - 전에 만나서 못 풀었던 문제인데, 해결법이 머릿속에 남아있지 않음. 복습이 부족하다.
 var numRollsToTarget = function (d, f, target) {};
 
 // ======================================================================================
