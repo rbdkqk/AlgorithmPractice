@@ -16,7 +16,7 @@
 
 ---
 
-## 채점 : 79%
+## 채점 : 10%
 
 - Your interview score of `1.91/10` beats `10%` of all users
 - March 17, 2021 2:16 PM
