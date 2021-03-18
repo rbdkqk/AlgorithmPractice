@@ -10,7 +10,7 @@
 
 ### 2. [925. (easy) Long Pressed Name](https://leetcode.com/problems/long-pressed-name/discuss/?currentPage=1&orderBy=most_votes&query=)
 
--  : 87 / 94 Testcases Passed
+- 실패 : 87 / 94 Testcases Passed
 - tag : Two Pointers, String
 - 메모 : Two Pointers를 생각은 했었는데, 원활하게 구현할 능력이 부족해서 시도하지 못했음
 
