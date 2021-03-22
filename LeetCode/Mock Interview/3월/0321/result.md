@@ -20,4 +20,4 @@
 
 - Your interview score of `3.72/10` beats `25%` of all users.
 - March 21, 2021 12:18 PM
-- Time Allotted: `1 hour` / Time Spent: `42 minutes 35 seconds` - (3번째 문제는 hard 난이도여서, 2번째 문제까지만 풀고 종료했음)
+- Time Allotted: `1 hour` / Time Spent: `42 minutes 35 seconds`
