@@ -2,16 +2,16 @@
 
 ## 주어진 문제
 
-### 1. []()
+### 1. [994. (medium) Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)
 
 - 실패 : 0 / 306 Testcases Passed
-- tag :
+- tag : Breadth-first Search
 - 메모 : Maximum call stack size exceeded - 논리를 정확히 구성하지 못함
 
-### 2. []()
+### 2. [59. (medium) Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/)
 
 - 실패 : 0 / 20 Testcases Passed
-- tag :
+- tag : Array
 - 메모 : 조건에 따라 방향을 바꿔가며 i, j 값을 변경하면 될 것 같은데, 논리를 구성하지 못함
 
 ---
