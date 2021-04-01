@@ -12,7 +12,7 @@
 
 - 실패 : 0 / 73 Testcases Passed
 - tag : Tree, Depth-first Search
-- 메모 : 문제가 원하는 결론은 알겠는데, 어떻게 접근해야 하는지 모르겠다. - linked list?? tree??s
+- 메모 : 문제가 원하는 결론은 알겠는데, 어떻게 접근해야 하는지 모르겠다. - linked list?? tree??
 
 ---
 
