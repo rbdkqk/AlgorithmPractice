@@ -10,7 +10,7 @@
 
 ### 2. [402. (medium) Remove K Digits](https://leetcode.com/problems/remove-k-digits/)
 
--  : Nothing was submitted for this question.
+- 실패 : Nothing was submitted for this question.
 - tag : Stack, Greedy
 - 메모 : 접근법을 생각해 내지 못함 - 매 경우를 모두 찾는 방법은 극히 비효율적일 것임
 
