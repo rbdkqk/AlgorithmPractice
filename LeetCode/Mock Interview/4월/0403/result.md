@@ -8,7 +8,7 @@
 - tag : Two Pointers, String
 - 메모 : 5분 이내 소요 (O(n/2) 시간복잡도이며, 추가 배열을 생성하지 않았으므로 Follow up 조건도 만족하는 O(1) 공간복잡도 코드라고 생각함) - 3월 1일에 같은 방식으로 풀었던 문제
 
-### 2. [(medium) Count Submatrices With All Ones](https://leetcode.com/problems/count-submatrices-with-all-ones/)
+### 2. [1504. (medium) Count Submatrices With All Ones](https://leetcode.com/problems/count-submatrices-with-all-ones/)
 
 - 실패 : Nothing was submitted for this question.
 - tag : Dynamic Programming
