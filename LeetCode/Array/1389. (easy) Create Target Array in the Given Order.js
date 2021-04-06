@@ -1,4 +1,4 @@
-/*  0406 : 1389. (medium) Create Target Array in the Given Order  //  tag : Array
+/*  0406 : 1389. (easy) Create Target Array in the Given Order  //  tag : Array
 
   Given two arrays of integers `nums` and `index`. 
 
