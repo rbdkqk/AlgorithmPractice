@@ -1,0 +1,24 @@
+{
+  "name": "algorithmpractice",
+  "version": "1.0.0",
+  "description": "- LeetCode : https://leetcode.com/rbdkqk/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbdkqk/AlgorithmPractice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rbdkqk/AlgorithmPractice/issues"
+  },
+  "homepage": "https://github.com/rbdkqk/AlgorithmPractice#readme",
+  "dependencies": {
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "^2.8.3"
+  }
+}
