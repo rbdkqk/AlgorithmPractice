@@ -1,6 +1,7 @@
 .DS_Store
 
-.vscode/
+LeetCode/.vscode
+
 .idea/encodings.xml
 .idea/jsLibraryMappings.xml
 .idea/misc.xml
