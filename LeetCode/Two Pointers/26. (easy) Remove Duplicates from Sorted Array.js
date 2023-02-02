@@ -92,8 +92,6 @@ var removeDuplicates = function (nums) {
   return left + 1;
 };
 
-removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]);
-
 // ======================================================================================
 
 // 다른 사람의 코드 : [JS] [97.1%] [two pointers]
