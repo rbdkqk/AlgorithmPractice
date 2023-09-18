@@ -9,12 +9,28 @@ export interface IQueue<T> {
 }
 
 export class Queue<T> implements IQueue<T> {
-  private _storage: Record<`${typeof this._front | typeof this._rear}`, T> = {};
+  private _storage: Map<number, T> = new Map<number, T>();
   private _front: number = 0;
   private _rear: number = 0;
 
+  private getNode(key: number): T {
+    if (this.isEmpty()) {
+      return undefined;
+    }
+
+    return this._storage.get(key);
+  }
+
+  private setNode(key: number, node: T): void {
+    this._storage.set(key, node);
+  }
+
+  private removeNode(key): void {
+    this._storage.delete(key);
+  }
+
   size(): number {
-    if (this._storage[`${this._rear}`] === undefined) {
+    if (this.getNode(this._rear) === undefined) {
       return 0;
     }
 
@@ -23,12 +39,12 @@ export class Queue<T> implements IQueue<T> {
 
   enqueue(node: T): void {
     if (this.isEmpty()) {
-      this._storage['0'] = node;
+      this.setNode(0, node);
       return;
     }
 
     this._rear++;
-    this._storage[`${this._rear}`] = node;
+    this.setNode(this._rear, node);
   }
 
   dequeue(): T {
@@ -38,13 +54,13 @@ export class Queue<T> implements IQueue<T> {
 
     if (this._front === this._rear) {
       const aloneNode = this.peek();
-      delete this._storage[`${this._front}`];
+      this.removeNode(this._front);
       this._front = this._rear = 0;
       return aloneNode;
     }
 
     const dequeueNode = this.peek();
-    delete this._storage[`${this._front}`];
+    this.removeNode(this._front);
     this._front++;
 
     return dequeueNode;
@@ -55,11 +71,11 @@ export class Queue<T> implements IQueue<T> {
       throw new Error('Queue is empty');
     }
 
-    return this._storage[`${this._front}`];
+    return this.getNode(this._front);
   }
 
   clear(): void {
-    this._storage = {};
+    this._storage.clear();
     this._front = this._rear = 0;
   }
 
@@ -74,9 +90,7 @@ export class Queue<T> implements IQueue<T> {
 
     const arr: T[] = [];
     for (let index = this._front; index <= this._rear; index++) {
-      if (index in this._storage) {
-        arr.push(this._storage[`${index}`]);
-      }
+      arr.push(this.getNode(index));
     }
 
     return arr;
