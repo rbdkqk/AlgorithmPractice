@@ -3,13 +3,32 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "eslint-config-prettier"
+  ],
   "overrides": [
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
+  "plugins": ["@typescript-eslint"],
   "rules": {
+    "interface-name": "off",
+    "object-literal-sort-keys": "off",
+    "no-angle-bracket-type-assertion": "off",
+    "jsx-no-lambda": "off",
+    "import-name": "off",
+    "no-console": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": "warn"
   }
 }
